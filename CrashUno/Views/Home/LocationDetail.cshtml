@@ -1,0 +1,98 @@
+﻿@{
+    }
+@model CityDetailViewModel
+    <br />
+    <br />
+     @*======= About Section =======*@ 
+    <section id="about">
+        <div class="container" data-aos="fade-up">
+            <div class="row about-container">
+
+                <div class="col-lg-6 content order-lg-1 order-2">
+                    <h2 class="title">@Model.Location.city</h2>
+                    <p>
+                        Learn what steps @char.ToUpper(Model.Location.city[0])@Model.Location.city.Substring(1) can take to reduce crash severity
+                    </p>
+
+
+
+
+                    <div class="gauge" style="width: 200px; --rotation:@Math.Round(Model.Score.PredictedValue * 18)deg; --color:#31c693; --background:#e9ecef;">
+                        <div class="percentage"></div>
+                        <div class="mask"></div>
+                        <span class="value" style="font-family: 'Open Sans', sans-serif; color: #31c693;">@Model.Score.PredictedValue</span>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6 background order-lg-2 order-1" data-aos="fade-left" data-aos-delay="100"></div>
+            </div>
+
+        </div>
+    </section> @*End About Section*@ 
+     @*======= Facts Section =======*@ 
+    <section id="facts">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h3 class="section-title">Feature Adjustments</h3>
+                <p class="section-description">See the difference in your city severity score if you implemented changes to reduce accident features</p>
+            </div>
+            <div class="row counters">
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span style="font-family: 'Open Sans', sans-serif;">@Model.Pedestrian_Prediction.PredictedValue</span>
+                    <p>Pedestrian Involved</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span style="font-family: 'Open Sans', sans-serif;">@Model.Bicyclist_Prediction.PredictedValue</span>
+                    <p>Bicycle Involved</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span style="font-family: 'Open Sans', sans-serif;">@Model.Motorcycle_Prediction.PredictedValue</span>
+                    <p>Motorcycle Involved</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span style="font-family: 'Open Sans', sans-serif;">@Model.Unrestrained_Prediction.PredictedValue</span>
+                    <p>Unrestrained Passenger</p>
+                </div>
+
+            </div>
+            <div class="row counters">
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span style="font-family: 'Open Sans', sans-serif;">@Model.DUI_Prediction.PredictedValue</span>
+                    <p>DUI</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span style="font-family: 'Open Sans', sans-serif;">@Model.Intersection_Prediction.PredictedValue</span>
+                    <p>Intersection Related</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span style="font-family: 'Open Sans', sans-serif;">@Model.SingleVehicle_Prediction.PredictedValue</span>
+                    <p>Single Vehicle</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span style="font-family: 'Open Sans', sans-serif;">@Model.Distracted_Prediction.PredictedValue</span>
+                    <p>Distracted Driving</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End Facts Section -->
+   @* <p>Score: @Model.Score.PredictedValue</p>*@
+@*<p>Pedestrian Score: @Model.Pedestrian_Prediction.PredictedValue</p>
+    <p>Bicycle Score: @Model.Bicyclist_Prediction.PredictedValue</p>
+    <p>Motorcycle Score: @Model.Motorcycle_Prediction.PredictedValue</p>
+    <p>Unrestrained Score: @Model.Unrestrained_Prediction.PredictedValue</p>
+    <p>DUI Score: @Model.DUI_Prediction.PredictedValue</p>
+    <p>Intersection Score: @Model.Intersection_Prediction.PredictedValue</p>
+    <p>Single Vehicle Score: @Model.SingleVehicle_Prediction.PredictedValue</p>
+    <p>Distracted Driving Score: @Model.Distracted_Prediction.PredictedValue</p>*@

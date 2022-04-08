@@ -1,0 +1,87 @@
+﻿@{
+
+    ViewData["Title"] = "Crashes Admin";
+
+}
+
+@model CrashViewModel
+@*<h2>@ViewBag.Calc</h2>*@
+
+<main style="padding-top: 90px;">
+
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="container">
+        <div class="row">
+            <div id="types" class=col-md-2>
+
+                <div class="d-grid gap-2">
+
+                    <form asp-controller="Admin" asp-action="Index">
+                        <p>
+                            Crash ID: <input class="form-control" type="number" name="SearchString" />
+                            <input class="btn btn-secondary mt-2" type="submit" value="Find" />
+                        </p>
+                    </form>
+
+                    <a class="btn btn-secondary" asp-action="Add">Add Crash Record</a>
+
+                </div>
+            </div>
+
+            <div class="col-md-10">
+                <table class="table table-sm table-striped table-bordered table-hover">
+
+                    <thead>
+                        <tr>
+                            <th>Crash ID</th>
+                            <th>Time/Date</th>
+                            <th>Route</th>
+                            <th>Mile Marker</th>
+                            <th>Lat</th>
+                            <th>Long</th>
+                            <th>Loc ID</th>
+                            <th>Severity</th>
+                            <th colspan="2"></th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (Crash c in Model.Crash)
+                        {
+                        <tr>
+                            <td>@c.crash_id</td>
+                            <td>@c.crash_datetime</td>
+                            <td>@c.route</td>
+                            <td>@c.milepoint</td>
+                            <td>@c.lat_utm_y</td>
+                            <td>@c.long_utm_x</td>
+                            <td>@c.location.city</td>
+                            <td>@c.crash_severity_id</td>
+
+                            <td><a class="btn btn-secondary" asp-controller="Admin" asp-action="Edit" asp-route-crashid="@c.crash_id">Edit</a></td>
+                            <td>
+                                <form method="post" asp-controller="Admin" asp-action="Delete" asp-route-crashid="@c.crash_id">
+                                    <input class="btn btn-danger" type="submit" value="Delete" />
+                                </form>
+                            </td>
+
+                        </tr>
+                        }
+                    </tbody>
+
+                </table>
+                <div page-blah="@Model.PageInfo" page-action="Index" page-class="btn" page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary" page-classes-enabled="true" class="btn-group pull-right m-1"></div>
+            </div>
+            
+        </div>
+        
+
+        @*<a asp-action="Crash" asp-route-pageNum="1">1</a>*@
+
+
+    </div>
+</main>

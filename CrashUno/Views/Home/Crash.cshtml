@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Crashes";
+}
+
+@model CrashViewModel
+@*<h2>@ViewBag.Calc</h2>*@
+
+<main style="padding-top: 75px;">
+    <br />
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="container">
+        <div class="row">
+            <div id="types" class=col-md-2>
+
+                <vc:types></vc:types>
+            </div>
+
+            <div class="col-md-10">
+                <table class="table table-sm table-striped table-bordered table-hover">
+
+                    <thead>
+                        <tr>
+                            <th>Crash ID</th>
+                            <th>Time/Date</th>
+                            <th>Route</th>
+                            <th>Mile Marker</th>
+                            <th>Lat</th>
+                            <th>Long</th>
+                            <th>Loc ID</th>
+                            <th>Severity</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (Crash c in Model.Crash)
+                        {
+                            <tr>
+                                <td>@c.crash_id</td>
+                                <td>@c.crash_datetime</td>
+                                <td>@c.route</td>
+                                <td>@c.milepoint</td>
+                                <td>@c.lat_utm_y</td>
+                                <td>@c.long_utm_x</td>
+                                <td>@c.location.city</td>
+                                <td>@c.crash_severity_id</td>
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table> 
+                <div page-blah="@Model.PageInfo" page-action="Crash" page-class="btn" page-class-normal="btn-outline-dark"
+                              page-class-selected="btn-primary" page-classes-enabled="true" class="btn-group pull-right m-1"> <br /> </div>
+            </div>
+        </div>
+       
+
+        @*<a asp-action="Crash" asp-route-pageNum="1">1</a>*@
+
+
+    </div>
+</main>

@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Locations";
+}
+
+@model LocationViewModel
+<br />
+<br />
+<br />
+<br />
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3 text-center">
+            <form asp-controller="Home" asp-action="Location">
+                <p>
+                    Search by City: <input type="text" name="searchString" class="form-control"/>
+                    <br />
+                    <input type="submit" value="Find" class="btn btn-secondary" />
+                </p>
+            </form>
+            <img src="~/img/INTEX2Photos/location3img2.jpg" height="420" style="border-radius: 15px"/> @*Need to CSS a border-radius="15px" give IMG rounded corners*@
+            <br />
+            <small>(Yeet)</small>
+        </div>
+
+        <div class="col-9">
+            @foreach (Location l in Model.Location)
+            {
+                <div class="card card-outline-primary m-1 p-1">
+
+                    <ul style="list-style-type: none;">
+                        <li>Location ID: @l.loc_id</li>
+                        <li>City: @l.city</li>
+                        <li><a asp-controller="Home" asp-action="LocationDetail" asp-route-locid="@l.loc_id" class="btn btn-secondary">View Details</a></li>
+                        
+                    </ul>
+
+                   
+                </div>
+            }
+            <br />
+            <div page-blah2="@Model.LocationPageInfo" page-action="Location" page-class="btn" page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary" page-classes-enabled="true" class="btn-group pull-right m-1"> <br /> </div>
+            <br />
+        </div>
+    </div>
+</div>
+
