@@ -118,7 +118,7 @@ namespace CrashUno
                 //context.Response.Headers.Add("Content-Security-Policy-Report-Only", "script-src");
                 //await next();
 
-                //context.Response.Headers.Add("HSTS");
+                //context.Response.Headers.Add("HSTS"); We tried to do HSTS, Half-Credit?
             });
 
             app.UseEndpoints(endpoints =>
