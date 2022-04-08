@@ -5,7 +5,8 @@
 
 }
 
-@model Crash 
+@model Crash
+@Html.ValidationSummary(false, "", new { @class = "text-danger" })
 <br />
 <br />
 <br />
@@ -25,7 +26,7 @@
             <input asp-for="crash_id" hidden />
 
             <label asp-for="crash_datetime">Timestamp:</label>
-            <input asp-for="crash_datetime" type="datetime-local" class="form-control"/>
+            <input asp-for="crash_datetime" type="datetime-local" class="form-control" />
             <br />
 
             <label asp-for="route">Route:</label>
@@ -33,7 +34,7 @@
             <br />
 
             <label asp-for="milepoint">Milepoint:</label>
-            <input asp-for="milepoint" class="form-control" />
+            <input asp-for="milepoint" class="form-control" required />
             <br />
 
             <label asp-for="lat_utm_y">Latitude:</label>
@@ -48,13 +49,13 @@
             <select asp-for="loc_id" class="form-control">
                 <option value="">-- Select a City --</option>
                 @foreach (Location l in ViewBag.Cities)
-            {
-                <option value="@l.loc_id">@l.city</option>
-            }
+                {
+                    <option value="@l.loc_id">@l.city</option>
+                }
             </select>
 
             <label asp-for="crash_severity_id">Crash Severity:</label>
-            <input asp-for="crash_severity_id" class="form-control" />
+            <input asp-for="crash_severity_id" class="form-control" required />
             <br />
 
             <h4>Options</h4>

@@ -12,12 +12,17 @@ namespace CrashUno.Models
         [Key]
         [Required]
         public int crash_id { get; set; }
+        [Required(ErrorMessage = "Please enter a date")]
+        [StringLength(22, MinimumLength = 4)]
         public string crash_datetime { get; set; }
+        [Required(ErrorMessage = "Please enter the Route Number")]
+        [StringLength(10, MinimumLength = 1)]
         public string route {get; set;}
         public float milepoint { get; set; }
         public float lat_utm_y { get; set; }
         public float long_utm_x { get; set; }
         public string main_road_name { get; set; }
+        
         public int crash_severity_id { get; set; }
         public int work_zone_related { get; set; }
         public int pedestrian_involved { get; set; }
@@ -40,6 +45,7 @@ namespace CrashUno.Models
         public int roadway_departure { get; set; }
 
         [Display (Name = "Category")]
+        
         public int loc_id { get; set; }
         [ForeignKey("loc_id")]
         public Location location { get; set; }
