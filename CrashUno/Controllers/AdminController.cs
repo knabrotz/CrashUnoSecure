@@ -89,7 +89,9 @@ namespace CrashUno.Controllers
             }
             else
             {
-                return RedirectToAction("Add");
+                ViewBag.Title = "Add New Crash Record";
+                ViewBag.Cities = repo.Location.OrderBy(x => x.city).ToList();
+                return View("Form", c);
             }
 
         }
