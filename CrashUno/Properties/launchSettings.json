@@ -12,9 +12,10 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "TrafficConnection": "server=aahwml99k3731h.cw5iq0qxty4b.us-east-1.rds.amazonaws.com;port=3306;database=traffic;user=root;password=SQLrootpassword",
-        "Identity": "Data Source=Identity.sqlite"
+        "ASPNETCORE_ENVIRONMENT": "Development"
+        //  ,
+        //"TrafficConnection": "server=aahwml99k3731h.cw5iq0qxty4b.us-east-1.rds.amazonaws.com;port=3306;database=traffic;user=root;passwordhasbeenremoved!!!",
+        //"Identity": "Data Source=removed!!!"
       }
     },
     "CrashUno": {
@@ -23,9 +24,10 @@
       "launchBrowser": true,
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "TrafficConnection": "server=aahwml99k3731h.cw5iq0qxty4b.us-east-1.rds.amazonaws.com;port=3306;database=traffic;user=root;password=SQLrootpassword",
-        "Identity": "Data Source=Identity.sqlite"
+        "ASPNETCORE_ENVIRONMENT": "Development"
+        //  ,
+        //"TrafficConnection": "server=aahwml99k3731h.cw5iq0qxty4b.us-east-1.rds.amazonaws.com;port=3306;database=traffic;user=root;passwordhasbeenremoved!!!",
+        //"Identity": "Data Source=removed!!!"
       }
     }
   }
