@@ -61,6 +61,15 @@ namespace CrashUno
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             services.AddRazorPages();
+            //we tried to get hsts half point?
+            services.AddHsts(options =>
+            {
+                options.Preload = true;
+                options.IncludeSubDomains = true;
+                options.MaxAge = TimeSpan.FromDays(60);
+                options.ExcludedHosts.Add("is404.net"); 
+            });
+
             services.AddSingleton<InferenceSession>(
                 new InferenceSession("wwwroot/traffic.onnx")
             );
@@ -94,6 +103,23 @@ namespace CrashUno
 
             app.UseAuthentication();
             app.UseAuthorization();
+        
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("Content-Security-Policy-Report-Only", "default-src 'self'");
+                await next();
+
+                context.Response.Headers.Add("Content-Security-Policy-Report-Only", "style-src");
+                await next();
+
+                context.Response.Headers.Add("Content-Security-Policy-Report-Only", "img-src");
+                await next();
+
+                context.Response.Headers.Add("Content-Security-Policy-Report-Only", "script-src");
+                await next();
+
+                context.Response.Headers.Add("HSTS", "its working");
+            });
 
             app.UseEndpoints(endpoints =>
             {
