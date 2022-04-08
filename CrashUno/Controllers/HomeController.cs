@@ -152,7 +152,7 @@ namespace CrashUno.Controllers
                 city_w_jordan = w_jordan
             };
 
-            // creates model for the city score
+            // creates model for the score
             var ps_result = _session.Run(new List<NamedOnnxValue>
             {
                 NamedOnnxValue.CreateFromTensor("float_input", ps_td.AsTensor())
@@ -177,7 +177,7 @@ namespace CrashUno.Controllers
                 city_w_jordan = w_jordan
             };
 
-            // creates model for the city score
+            // creates model for the score
             var bs_result = _session.Run(new List<NamedOnnxValue>
             {
                 NamedOnnxValue.CreateFromTensor("float_input", bs_td.AsTensor())
@@ -202,7 +202,7 @@ namespace CrashUno.Controllers
                 city_w_jordan = w_jordan
             };
 
-            // creates model for the city score
+            // creates model for the score
             var ms_result = _session.Run(new List<NamedOnnxValue>
             {
                 NamedOnnxValue.CreateFromTensor("float_input", ms_td.AsTensor())
@@ -227,7 +227,7 @@ namespace CrashUno.Controllers
                 city_w_jordan = w_jordan
             };
 
-            // creates model for the city score
+            // creates model for the score
             var us_result = _session.Run(new List<NamedOnnxValue>
             {
                 NamedOnnxValue.CreateFromTensor("float_input", us_td.AsTensor())
@@ -252,7 +252,7 @@ namespace CrashUno.Controllers
                 city_w_jordan = w_jordan
             };
 
-            // creates model for the city score
+            // creates model for the score
             var duis_result = _session.Run(new List<NamedOnnxValue>
             {
                 NamedOnnxValue.CreateFromTensor("float_input", duis_td.AsTensor())
@@ -277,7 +277,7 @@ namespace CrashUno.Controllers
                 city_w_jordan = w_jordan
             };
 
-            // creates model for the city score
+            // creates model for the score
             var is_result = _session.Run(new List<NamedOnnxValue>
             {
                 NamedOnnxValue.CreateFromTensor("float_input", is_td.AsTensor())
@@ -302,7 +302,7 @@ namespace CrashUno.Controllers
                 city_w_jordan = w_jordan
             };
 
-            // creates model for the city score
+            // creates model for the score
             var svs_result = _session.Run(new List<NamedOnnxValue>
             {
                 NamedOnnxValue.CreateFromTensor("float_input", svs_td.AsTensor())
@@ -327,7 +327,7 @@ namespace CrashUno.Controllers
                 city_w_jordan = w_jordan
             };
 
-            // creates model for the city score
+            // creates model for the score
             var ds_result = _session.Run(new List<NamedOnnxValue>
             {
                 NamedOnnxValue.CreateFromTensor("float_input", ds_td.AsTensor())
@@ -336,7 +336,7 @@ namespace CrashUno.Controllers
             var ds_prediction = new Prediction { PredictedValue = (float)Math.Round((ds_score.First() * 2), 2) };
             ds_result.Dispose();
 
-            // loads models into the view model
+            // loads models into the model
             var vm = new CityDetailViewModel
             {
                 Location = loc,
@@ -352,7 +352,7 @@ namespace CrashUno.Controllers
 
             };
 
-            return View(vm); //vm
+            return View(vm); 
 
         }
 

@@ -63,9 +63,8 @@
 
                             <td><a class="btn btn-secondary" asp-controller="Admin" asp-action="Edit" asp-route-crashid="@c.crash_id">Edit</a></td>
                             <td>
-                                <form method="post" asp-controller="Admin" asp-action="Delete" asp-route-crashid="@c.crash_id">
-                                    <input class="btn btn-danger" type="submit" value="Delete" />
-                                </form>
+                                <a class="btn btn-danger" asp-controller="Admin" asp-action="Delete" asp-route-crashid="@c.crash_id">Delete</a>
+                                
                             </td>
 
                         </tr>
