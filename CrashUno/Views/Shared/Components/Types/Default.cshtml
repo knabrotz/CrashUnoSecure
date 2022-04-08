@@ -6,14 +6,34 @@
 <div class="d-grid gap-2">
     <p>
         Filter by Crash Severity: <br />
-        <small>(5 being most severe)</small>
     </p>
 
 
     @foreach (int t in Model)
     {
+        string title;
+        if(t == 1)
+        {
+            title = "No Apparent Injury";
+        }
+        else if(t == 2)
+        {
+            title = "Possible Injury";
+        }
+        else if(t == 3)
+        {
+            title = "Suspected Minor Injury";
+        }
+        else if(t == 4)
+        {
+            title = "Suspected Serious Injury";
+        }
+        else
+        {
+            title = "Fatal Injury";
+        }
         <a asp-controller="Home" asp-action="Crash" asp-route-crashseverityid="@t" asp-route-pageNum="1"
-           class="btn @(ViewBag.SelectedType == t.ToString() ? "btn-primary" : "btn-outline-secondary")">@t</a>
+           class="btn @(ViewBag.SelectedType == t.ToString() ? "btn-primary" : "btn-outline-secondary")">@title</a>
     }
     
     <a asp-controller="Home" asp-action="Crash" asp-route-crashseverityid="0" asp-route-pageNum="1" class="btn btn-outline-secondary">Clear Filter</a>
