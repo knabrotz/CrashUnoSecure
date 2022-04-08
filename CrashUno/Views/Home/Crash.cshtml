@@ -5,9 +5,15 @@
 @model CrashViewModel
 @*<h2>@ViewBag.Calc</h2>*@
 
-<main style="padding-top: 75px;">
-    <br />
-    <h1>@ViewData["Title"]</h1>
+<<main style="padding-top: 80px;">
+    <section id="services">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h3 class="section-title">@ViewData["Title"]</h3>
+                <p class="section-description">This database contains a record of every crash that took place between 2018 - 2019. <br />You can filter the database by crash severity by selecting an option on the left of the table.</p>
+            </div>
+        </div>
+    </section>
 
     <div class="container">
         <div class="row">
@@ -54,6 +60,8 @@
                 </table> 
                 <div page-blah="@Model.PageInfo" page-action="Crash" page-class="btn" page-class-normal="btn-outline-dark"
                               page-class-selected="btn-primary" page-classes-enabled="true" class="btn-group pull-right m-1"> <br /> </div>
+
+
             </div>
         </div>
        
