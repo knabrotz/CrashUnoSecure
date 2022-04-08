@@ -31,9 +31,7 @@
                             <th>Time/Date</th>
                             <th>Route</th>
                             <th>Mile Marker</th>
-                            <th>Lat</th>
-                            <th>Long</th>
-                            <th>Loc ID</th>
+                            <th>City</th>
                             <th>Severity</th>
 
                         </tr>
@@ -43,15 +41,35 @@
 
                         @foreach (Crash c in Model.Crash)
                         {
+                            string title;
+                            if (c.crash_severity_id == 1)
+                            {
+                                title = "No Apparent Injury";
+                            }
+                            else if (c.crash_severity_id == 2)
+                            {
+                                title = "Possible Injury";
+                            }
+                            else if (c.crash_severity_id == 3)
+                            {
+                                title = "Suspected Minor Injury";
+                            }
+                            else if (c.crash_severity_id == 4)
+                            {
+                                title = "Suspected Serious Injury";
+                            }
+                            else
+                            {
+                                title = "Fatal Injury";
+                            }
+
                             <tr>
                                 <td>@c.crash_id</td>
                                 <td>@c.crash_datetime</td>
                                 <td>@c.route</td>
                                 <td>@c.milepoint</td>
-                                <td>@c.lat_utm_y</td>
-                                <td>@c.long_utm_x</td>
                                 <td>@c.location.city</td>
-                                <td>@c.crash_severity_id</td>
+                                <td>@title</td>
 
                             </tr>
                         }
