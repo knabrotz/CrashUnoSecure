@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Crash
+<br />
+<br />
+<br />
+
+<section id="services" >
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h3 class="section-title">Delete</h3>
+            <p class="section-description">
+                Are you sure you want to delete record @Model.crash_id?
+                
+            </p>
+            <form asp-controller="Admin" asp-action="Delete" method="post" class="section-description">
+                <input type="hidden" asp-for="crash_id" />
+                <button type="submit" class="btn btn-danger">Yes</button>
+                <a asp-controller="Admin" asp-action="Index" class="btn btn-secondary">Cancel</a>
+
+            </form>
+        </div>
+    </div>
+</section>

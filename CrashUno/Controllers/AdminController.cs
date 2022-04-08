@@ -97,10 +97,19 @@ namespace CrashUno.Controllers
         }
 
         [Authorize]
+        [HttpGet]
         public IActionResult Delete(int crashid)
         {
-            var c = repo.Crash.FirstOrDefault(x => x.crash_id == crashid);
-            repo.DeleteCrashRecord(c);
+            var c = repo.Crash.Single(x => x.crash_id == crashid);
+            return View(c);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult Delete(Crash crash)
+        {
+            //var c = repo.Crash.FirstOrDefault(x => x.crash_id == crashid);
+            repo.DeleteCrashRecord(crash);
 
             return RedirectToAction("Index");
         }

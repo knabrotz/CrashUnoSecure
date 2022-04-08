@@ -109,16 +109,16 @@ namespace CrashUno
                 context.Response.Headers.Add("Content-Security-Policy-Report-Only", "default-src 'self'");
                 await next();
 
-                context.Response.Headers.Add("Content-Security-Policy-Report-Only", "style-src");
-                await next();
+                //context.Response.Headers.Add("Content-Security-Policy-Report-Only", "style-src");
+                //await next();
 
-                context.Response.Headers.Add("Content-Security-Policy-Report-Only", "img-src");
-                await next();
+                //context.Response.Headers.Add("Content-Security-Policy-Report-Only", "img-src");
+                //await next();
 
-                context.Response.Headers.Add("Content-Security-Policy-Report-Only", "script-src");
-                await next();
+                //context.Response.Headers.Add("Content-Security-Policy-Report-Only", "script-src");
+                //await next();
 
-                context.Response.Headers.Add("HSTS", "its working");
+                //context.Response.Headers.Add("HSTS"); We tried to do HSTS, Half-Credit?
             });
 
             app.UseEndpoints(endpoints =>
