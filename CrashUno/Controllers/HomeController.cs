@@ -33,6 +33,11 @@ namespace CrashUno.Controllers
             _session = session;
         }
         
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
         public IActionResult Index()
         {
 
